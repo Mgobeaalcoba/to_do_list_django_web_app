@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro</title>
+</head>
+<body>
+    {% extends 'base/principal.html' %}
+    {% block content %}
+        <div class="barra-superior">
+            <h1>Registrarse</h1>
+        </div>
+        <div class="cuerpo-tarjeta">
+            <form method="post">
+                {% csrf_token %}
+                <label>{{ form.username.label }}</label>
+                    {{ form.username }}
+                <label>{{ form.password1.label }}</label>
+                    {{ form.password1 }}
+                <label>{{ form.password2.label }}</label>
+                    {{ form.password2 }}
+                <input class="boton" type="submit" value="Registrar" style="margin-top:12px;">
+            </form>
+            <p>Ya tienen una cuenta? <a href="{% url 'login' %}">Ingresa</a></p>
+        </div>
+    {% endblock content %}
+</body>
+</html>
